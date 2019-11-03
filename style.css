@@ -1,0 +1,19 @@
+body{
+    display: inline;
+    
+}
+
+.letters{
+    font-size: 16px;
+    width:100%;
+    height: 50px;
+    max-width: 50px;
+    display: inline-block;
+    background: #5FFFC4;
+    text-align: center;
+    border: 2px solid black;
+    box-shadow: 2px 2px  5px black;
+    border-radius: 5px;
+    margin: 5px;
+
+}

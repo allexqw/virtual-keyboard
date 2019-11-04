@@ -23,6 +23,7 @@ const keyboard ={
     '+122' : ['F11','F11'],
     '+123' : ['F12','F12'],
 
+    '+192' : ['`','ё'],
     '+49' : ['1','1'],
     '+50' : ['2','2'],
     '+51' : ['3','3'],
@@ -46,8 +47,8 @@ const keyboard ={
     '+73' : ['i','ш'],
     '+79' : ['o','щ'],
     '+80' : ['p','з'],
-    '+' : ['q','х'],
-    '+' : ['q','ъ'],
+    '+219' : ['[','х'],
+    '+221' : [']','ъ'],
 
     '+14' : ['Caps Lock','Caps Lock'],
     '+65' : ['a','ф'],
@@ -59,11 +60,11 @@ const keyboard ={
     '+74' : ['j','о'],
     '+75' : ['k','л'],
     '+76' : ['l','д'],
-    '+' : ['','ж'],
-    '+' : ['','э'],
+    '+186' : [';','ж'],
+    '+222' : ['\'','э'],
     '+13' :['Enter','Enter'],
 
-    '+16' : ['Shift','Shift'],
+    '+16' : ['Shift left','Shift left'],
     '+90' : ['z','я'],
     '+88' : ['x','ч'],
     '+67' : ['c','с'],
@@ -71,12 +72,12 @@ const keyboard ={
     '+66' : ['b','и'],
     '+78' : ['n','т'],
     '+77' : ['m','ь'],
-    '+' : ['q','б'],
-    '+' : ['q','ю'],
-    '+16' : ['Shift','Shift'],
+    '+188' : [',','б'],
+    '+190' : ['.','ю'],
+    // '+16' : ['Shift right','Shift right'],
 
     '+17' : ['Ctrl','Ctrl'],
-    '+91' : ['Win','Win'],   
+    '+91' : ['Win ','Win '],   
     '+18' : ['Alt','Alt'],
     '+32' : [ 'Space ','Пробел'],
     '+18' : ['Alt','Alt'],
@@ -98,7 +99,7 @@ const keyboard ={
     
     
     
-    
+    '+44' : ['Prt Scr','Prt Scr'],
     '+20' : ['Pause','Pause'],
     
     
@@ -117,9 +118,28 @@ const keyboard ={
     '+40' : ['Down arrow', 'Down arrow'],
 }
 
+div =document.createElement('div');
+div.id ='left';
+document.body.append(div);
+
+div=document.createElement('div');
+div.id ='right';
+document.body.append(div);
+let position;
+position=left;
 for(key in keyboard){
+    
     button =document.createElement("button");
     button.className ='letters'+' '+ keyboard[key][0];
     button.innerHTML = keyboard[key][0];
-    document.body.append(button);
+    if(keyboard[key][0] === '`'|| keyboard[key][0]==='Tab' || keyboard[key][0]==='Caps Lock'|| keyboard[key][0]==='Shift left'|| keyboard[key][0]==='Ctrl'
+    ||keyboard[key][0]==='Win r') {
+        br = document.createElement('br');
+        left.appendChild(br);
+    }
+    if (keyboard[key][0]==='Prt Scr'){
+        position=right;
+        
+    }
+    position.appendChild(button);
 }

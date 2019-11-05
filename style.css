@@ -1,33 +1,63 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 body{
     display: inline;
     background: rgba(108, 236, 125, 0.568);
     margin: 0;
     display: flex;
     flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 30px 0;
+    
 }
-
+.activ{
+    background: red;
+}
 #left{
-    width: 75%;
+    /* width: 70%; */
+    justify-content: center;
+    font-size: 12px;
+    width: 910px;
+    align-items: center;
+    padding: 10px;
 
 }
 #right{
-    width: 25%;
+    width: 15%;
+    font-size: 12px;
+    width: 200px;
+    padding: 10px;
+    
 }
 .letters{
-    font-size: 16px;
+    /* font-size: 16px; */
     width:100%;
     height: 50px;
     max-width: 50px;
     display: inline-block;
     /* background: #5FFFC4; */
-    background: radial-gradient(white, rgb(38, 94, 214));
+    /* background: radial-gradient(white, rgb(134, 13, 128)); */
     text-align: center;
     border: 2px solid black;
     box-shadow: 2px 2px  5px black;
     border-radius: 5px;
-    margin: 5px;
+    margin: 3px;
     padding: 0;
 
+}
+.Up{
+    margin:65px 0 0 60px;
+}
+.textArea{
+    width: 130px;
+    height: auto;
+    max-width: 150px;
+    margin: 10px;
+
+    
 }
 
 .letters:hover{
@@ -35,12 +65,64 @@ body{
     transition: linear .3s;
     color: #fff;
 }
- .F1 .F2 .F3 .F3 .F4 .F5 .F6 .F7 .F8 .F9 .F10 .F11 .F12{
-    background-color: rgb(26, 20, 110);
+ .F1, .F2, .F3, .F3, .F4, .F5, .F6, .F7, .F8, .F9, .F10, .F11, .F12
+ {
+    background: radial-gradient(white,rgb(27, 12, 194));
 
 } 
+.num{
+    background:radial-gradient(white,rgb(83, 231, 150));
+}
+
+.letter{
+    background:radial-gradient(white,rgb(235, 207, 118));
+}
  
- .Back
+ .Back, .Caps, .Shift, .Enter, .Win, .Ctrl, .Alt , .Tab, .Space, .Open
 {
-    background-color: blueviolet;
+    background:radial-gradient(white,rgb(26, 25, 34));
+}
+.Open{
+    max-width: 83px;
+    width: 100%;
+}
+.Caps{
+    width: 100%;
+    max-width: 100px;
+}
+.Back{
+    width: 100%;
+    max-width: 60px;
+}
+.F5, .F9{
+    margin-left: 40px;
+}
+
+.Win, .Alt, .Ctrl{
+    width: 100%;
+    max-width: 75px;
+
+}
+ .Enter{
+     width: 100%;
+     max-width: 120px;
+ }
+.Space{
+    width: 100%;
+    max-width: 355px;
+}
+.Shift{
+    width: 100%;
+    max-width: 138px;
+}
+.Esc{
+    margin-right: 50px;
+    background: radial-gradient(white,rgb(58, 55, 88));
+}
+.Tab{
+    width: 100%;
+    max-width: 80px;
+}
+.Scr, .Home, .Page, .Insert, .Scroll, .Pause, .End, .Delete, .Up, .Down, .Left , .Right {
+    background: radial-gradient(white,rgb(58, 55, 88));
 }

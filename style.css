@@ -51,13 +51,19 @@ body {
   background: rgba(167, 172, 167, 0.185);
   font-size: 20px;
   border: none;
+  color: azure;
 }
 
 .letters:hover {
   transition: linear 0.3s;
   color: #fff;
 }
+.letters:active {
+    transition: linear 0.3s;
+    background: rgb(50, 110, 32);
+    
 
+  }
 .Open {
   max-width: 83px;
   width: 100%;

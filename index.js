@@ -84,7 +84,6 @@ init();
 addEventListener("click", e => {
   keys = e.srcElement.keyCode;
   text = keyboard[e.srcElement.keyCode][i];
-  console.log(document.getElementById(keyboard[keys][i]));
   if (
     keyboard[keys][i] === "Enter" ||
     keyboard[keys][i] === "Tab" ||
@@ -149,7 +148,6 @@ addEventListener("click", e => {
       case "Alt":
         if (shift == true) {
           shift = !shift;
-
           document.body.innerHTML = "";
           if (i == 0) {
             i = 1;
@@ -186,21 +184,16 @@ addEventListener("click", e => {
 
 addEventListener("keydown", e => {
   for (keys in keyboard) {
-    console.log(keys);
-    console.log(e.keyCode);
     if (keyboard[keys][3] == "" + e.keyCode) {
       if ((shift == true) & (e.keyCode == "18")) {
         document.getElementById(keyboard[keys][i]).click();
-
         document.getElementById(keyboard[keys][i]).style.background =
           "rgb(217, 238, 34)";
       } else {
         document.getElementById(keyboard[keys][i]).click();
-
         document.getElementById(keyboard[keys][i]).style.background =
           "rgb(217, 238, 34)";
       }
-
       addEventListener("keyup", e => {
         for (keys in keyboard) {
           if (keyboard[keys][3] == e.keyCode) {
@@ -219,9 +212,7 @@ function init() {
   textArea = document.createElement("textArea");
   textArea.className = "textArea";
   left.append(textArea);
-
   textArea.append("");
-
   text = document.createElement("p");
   text.className = "text";
 

@@ -1,5 +1,7 @@
 let Caps = false;
 let shift = false;
+let string = "";
+let i = 0;
 const keyboard = {
   "1": ["Esc", "Esc", "Esc", "27"],
   "2": ["F1", "F1", "F1", "112"],
@@ -14,7 +16,6 @@ const keyboard = {
   "11": ["F10", "F10", "F10", "121"],
   "12": ["F11", "F11", "F11", "122"],
   "13": ["F12", "F12", "F12", "123"],
-
   "14": ["`", "ё", "num", "192"],
   "15": ["1", "1", "num", "49"],
   "16": ["2", "2", "num", "50"],
@@ -30,7 +31,6 @@ const keyboard = {
   "26": ["=", "=", "num", "187"],
   "27": ["|", "|", "num", "220"],
   "28": ["Back", "Back", "Back", "8"],
-
   "29": ["Tab", "Tab", "Tab", "9"],
   "30": ["q", "й", "letter", "81"],
   "31": ["w", "ц", "letter", "87"],
@@ -45,8 +45,7 @@ const keyboard = {
   "40": ["[", "х", "letter", "219"],
   "41": ["]", "ъ", "letter", "221"],
   "42": ["open", "open", "Open", ""],
-
-  "43": ["Caps Lock", "Caps Lock", "Caps", "20"],
+  "43": ["Caps_Lock", "Caps_Lock", "Caps", "20"],
   "44": ["a", "ф", "letter", "65"],
   "45": ["s", "ы", "letter", "83"],
   "46": ["d", "в", "letter", "68"],
@@ -59,8 +58,7 @@ const keyboard = {
   "53": [";", "ж", "letter", "186"],
   "54": ["'", "э", "letter", "222"],
   "55": ["Enter", "Enter", "Enter", "13"],
-
-  "56": ["Shift Left", "Shift Left", "Shift", "16"],
+  "56": ["Shift_Left", "Shift_Left", "Shift", "16"],
   "57": ["z", "я", "letter", "90"],
   "58": ["x", "ч", "letter", "88"],
   "59": ["c", "с", "letter", "67"],
@@ -71,113 +69,145 @@ const keyboard = {
   "64": [",", "б", "letter", "188"],
   "65": [".", "ю", "letter", "190"],
   "66": ["/", ".", "letter", "191"],
-  "67": ["Shift Right", "Shift Right", "Shift", "16"],
-
-  "68": ["Ctrl l", "Ctrl l", "Ctrl", "17"],
+  "67": ["Shift_Right", "Shift_Right", "Shift", "16"],
+  "68": ["Ctrl_l", "Ctrl_l", "Ctrl", "17"],
   "69": ["Win ", "Win ", "Win", "91"],
   "70": ["Alt", "Alt", "Alt", "18"],
   "71": ["Space", "Space", "Space", "32"],
   "72": ["Alt", "Alt", "Alt", "18"],
   "73": ["Win", "Win", "Win", "92"],
-  "75": ["Ctrl r", "Ctrl r", "Ctrl", "17"]
-
-  // '76' : ['Prt Scr','Prt Scr','Scr','+44' ],
-  // '77' : ['Scr lk','Scr lk','Scroll','+145'],
-  // '78' : ['Pause','Pause','Pause','+19' ],
-
-  // '79' : ['Insert','Insert','Insert','+45' ],
-  // '80' : ['Home','Home','Home','+36' ],
-  // '81' : ['Pg. Up','Pg. Up','Page','+33' ],
-  // '82' : ['Delete','Delete','Delete','+46' ],
-  // '83' : ['End','End','End','+35' ],
-  // '84' : ['Pg.Dwn','Pg.Dwn','Page','+34' ],
-
-  // '85' : ['Up','Up','Up','+38' ],
-  // '86' : ['Left','Left','Left','+37'] ,
-  // '87' : ['Right','Right','Right','+39' ],
-  // '88' : ['Down', 'Down','Down','+40' ],
+  "74": ["Ctrl_r", "Ctrl_r", "Ctrl", "17"]
 };
 
 init();
 
 addEventListener("click", e => {
   keys = e.srcElement.keyCode;
-  text = keyboard[keys][0];
-  console.log(document.getElementById(keyboard[keys][0]));
+  text = keyboard[e.srcElement.keyCode][i];
+  console.log(document.getElementById(keyboard[keys][i]));
   if (
-    keyboard[keys][0] === "Enter" ||
-    keyboard[keys][0] === "Tab" ||
-    keyboard[keys][0] === "Caps Lock" ||
-    keyboard[keys][0] === "Shift Left" ||
-    keyboard[keys][0] === "Ctrl r" ||
-    keyboard[keys][0] === "Ctrl l" ||
-    keyboard[keys][0] === "Win" ||
-    keyboard[keys][0] === "Alt" ||
-    keyboard[keys][0] === "Back" ||
-    keyboard[keys][0] === "Shift Right" ||
-    keyboard[keys][0] === "Space" ||
-    keyboard[keys][0] === "Esc"
+    keyboard[keys][i] === "Enter" ||
+    keyboard[keys][i] === "Tab" ||
+    keyboard[keys][i] === "Caps_Lock" ||
+    keyboard[keys][i] === "Shift_Left" ||
+    keyboard[keys][i] === "Ctrl_r" ||
+    keyboard[keys][i] === "Ctrl_l" ||
+    keyboard[keys][i] === "Win" ||
+    keyboard[keys][i] === "Alt" ||
+    keyboard[keys][i] === "Back" ||
+    keyboard[keys][i] === "Shift_Right" ||
+    keyboard[keys][i] === "Space" ||
+    keyboard[keys][i] === "Esc" ||
+    keyboard[keys][i] === "F1" ||
+    keyboard[keys][i] === "F2" ||
+    keyboard[keys][i] === "F3" ||
+    keyboard[keys][i] === "F4" ||
+    keyboard[keys][i] === "F5" ||
+    keyboard[keys][i] === "F6" ||
+    keyboard[keys][i] === "F7" ||
+    keyboard[keys][i] === "F8" ||
+    keyboard[keys][i] === "F9" ||
+    keyboard[keys][i] === "F10" ||
+    keyboard[keys][i] === "F11" ||
+    keyboard[keys][i] === "F12"
   ) {
     switch (text) {
       case "Tab":
         textArea.append("");
         break;
+
       case "Space":
         textArea.append(" ");
+        break;
+      case "Ctrl_l":
+        break;
+
+      case "Ctrl_r":
         break;
 
       case "Enter":
         textArea.append("\n");
         break;
-      case "Caps Lock":
-        document.body.innerHTML = "";
 
+      case "Caps_Lock":
+        document.body.innerHTML = "";
         Caps = !Caps;
-        init(Caps);
+        re_inits();
+        break;
 
-        break;
-      case "Ctrl l":
-        textArea.append("");
-        break;
-        case "Ctrl r":
-                textArea.append("");
-                break;
-      case "Shift Left":
+      case "Shift_Left":
         document.body.innerHTML = "";
         shift = !shift;
-        init();
+        re_inits();
         break;
-      case "Shift Right":
+
+      case "Shift_Right":
         document.body.innerHTML = "";
-        shift = !shift;
-        init();
+        re_inits();
         break;
 
       case "Alt":
-        textArea.append("");
+        if (shift == true) {
+          shift = !shift;
+
+          document.body.innerHTML = "";
+          if (i == 0) {
+            i = 1;
+          } else {
+            i = 0;
+          }
+          re_inits();
+        }
         break;
       case "Win":
-        textArea.append("");
         break;
       case "Esc":
-        textArea.append("");
         break;
       case "Back":
-            //button.classList.add("active","button","element");
-        textArea.textContent = textArea.textContent.substring(0,textArea.textContent.length - 1);
+        textArea.textContent = textArea.textContent.substring(
+          0,
+          textArea.textContent.length - 1
+        );
         break;
       default:
-           
     }
   } else {
     if (Caps == true || shift == true) {
       if ((shift == true) & (Caps == true)) {
-        textArea.append(keyboard[keys][0]);
+        textArea.append(keyboard[keys][i]);
       } else {
-        textArea.append(keyboard[keys][0].toUpperCase());
+        textArea.append(keyboard[keys][i].toUpperCase());
       }
     } else {
       textArea.append(text);
+    }
+  }
+});
+
+addEventListener("keydown", e => {
+  for (keys in keyboard) {
+    console.log(keys);
+    console.log(e.keyCode);
+    if (keyboard[keys][3] == "" + e.keyCode) {
+      if ((shift == true) & (e.keyCode == "18")) {
+        document.getElementById(keyboard[keys][i]).click();
+
+        document.getElementById(keyboard[keys][i]).style.background =
+          "rgb(217, 238, 34)";
+      } else {
+        document.getElementById(keyboard[keys][i]).click();
+
+        document.getElementById(keyboard[keys][i]).style.background =
+          "rgb(217, 238, 34)";
+      }
+
+      addEventListener("keyup", e => {
+        for (keys in keyboard) {
+          if (keyboard[keys][3] == e.keyCode) {
+            document.getElementById(keyboard[keys][i]).style.background = "";
+          }
+        }
+      });
     }
   }
 });
@@ -186,28 +216,21 @@ function init() {
   div = document.createElement("div");
   div.id = "left";
   document.body.append(div);
-
-  div = document.createElement("div");
-  div.id = "right";
-  document.body.append(div);
-
   textArea = document.createElement("textArea");
   textArea.className = "textArea";
-  document.body.append(textArea);
+  left.append(textArea);
 
   textArea.append("");
-
-  let position;
-  position = left;
 
   text = document.createElement("p");
   text.className = "text";
 
   for (keys in keyboard) {
     button = document.createElement("button");
-
+    button.keyCode = keys;
+    button.type = "button";
     button.className = "letters" + " " + keyboard[keys][2];
-    button.id = keyboard[keys][0];
+    button.id = keyboard[keys][i];
     if (Caps == true) {
       button.classList.add("active__Caps");
     }
@@ -215,56 +238,36 @@ function init() {
       button.classList.add("active__shift");
     }
     if (Caps == true || shift == true) {
-      button.innerHTML = keyboard[keys][0].toUpperCase();
+      button.innerHTML = keyboard[keys][i].toUpperCase();
       if ((shift == true) & (Caps == true)) {
-        button.innerHTML = keyboard[keys][0];
+        button.innerHTML = keyboard[keys][i];
       }
     } else {
-      button.innerHTML = keyboard[keys][0];
+      button.innerHTML = keyboard[keys][i];
     }
-
-    button.keyCode = keys;
-    button.type = "button";
     if (
-      keyboard[keys][0] === "`" ||
-      keyboard[keys][0] === "Tab" ||
-      keyboard[keys][0] === "Caps Lock" ||
-      keyboard[keys][0] === "Shift left" ||
-      keyboard[keys][0] === "Ctrl l" ||
-      keyboard[keys][0] === "Win r" ||
-      keyboard[keys][0] === "Insert" ||
-      keyboard[keys][0] === "Delete" ||
-      keyboard[keys][0] === "Left" ||
-      keyboard[keys][0] === "Up"
+      keyboard[keys][i] === "`" ||
+      keyboard[keys][i] === "Tab" ||
+      keyboard[keys][i] === "Caps_Lock" ||
+      keyboard[keys][i] === "Shift_left" ||
+      keyboard[keys][i] === "Ctrl_l" ||
+      keyboard[keys][i] === "Win_r" ||
+      keyboard[keys][i] === "Insert" ||
+      keyboard[keys][i] === "Delete" ||
+      keyboard[keys][i] === "Left" ||
+      keyboard[keys][i] === "Up"
     ) {
       br = document.createElement("br");
-      position.appendChild(br);
+      left.appendChild(br);
     }
-    if (keyboard[keys][0] === "Prt Scr") {
-      position = right;
-    }
-    position.appendChild(button);
+    div.appendChild(button);
+  }
+  keys = "";
+}
+function re_inits() {
+  if (i == 1) {
+    init();
+  } else {
+    init();
   }
 }
-addEventListener("keydown", e => {
-  
-  for (keys in keyboard) {
-    if (keyboard[keys][3] == e.keyCode) {
-      
-      document.getElementById(keyboard[keys][0]).click(button);
-
-     document.getElementById(keyboard[keys][0]).style.background='rgb(217, 238, 34)';
-    }
-  }
-});
-addEventListener("keyup", e => {
-  
-  for (keys in keyboard) {
-    if (keyboard[keys][3] == e.keyCode) {
-      
-      document.getElementById(keyboard[keys][0]).click(button);
-
-     document.getElementById(keyboard[keys][0]).style.background='';
-    }
-  }
-});
